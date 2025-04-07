@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KonnectU Solutions Limited</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f9f9;
+      color: #222;
+    }
+    header, section, footer {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+    header {
+      background: #fff;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+    header img {
+      height: 80px;
+    }
+    h1 {
+      color: #1d8348;
+    }
+    .coming-soon {
+      background: #e8f5e9;
+      padding: 2rem;
+      text-align: center;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+    form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #1d8348;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    .success-message {
+      display: none;
+      color: #1d8348;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" alt="KonnectU Logo">
+    <h1>KonnectU Solutions Limited</h1>
+    <p>Your trusted space to find or offer professional services</p>
+  </header>
+
+  <section class="coming-soon">
+    <h2>We're Coming Live!</h2>
+    <p>A subsidiary of FixItAll Handyman Multi Services Limited, bringing trusted handyman, artisan, and engineering services to you.</p>
+    <p>Launching soon on Google Play and the App Store.</p>
+  </section>
+
+  <section>
+    <h2>Be Among the First to Join</h2>
+    <form id="registrationForm">
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="entry.137930516" required>
+
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="entry.365860481" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="entry.1596585368" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="entry.1599107456" required>
+
+      <label for="location">Location</label>
+      <input type="text" id="location" name="entry.344818518" required>
+
+      <label for="profession">What’s your profession?</label>
+      <input type="text" id="profession" name="entry.1088893444" required>
+
+      <button type="submit">Join Now</button>
+      <p class="success-message" id="successMessage">Thank you for joining! We'll contact you soon.</p>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 KonnectU Solutions Limited — Abuja, Nigeria | +234 803 458 7309</p>
+  </footer>
+
+  <script>
+    document.getElementById("registrationForm").addEventListener("submit", function (e) {
+      e.preventDefault(); // Prevent the default form submission
+
+      const form = e.target;
+      const formData = new FormData(form);
+
+      // Construct the URL to the Google Form
+      const googleFormURL =
+        "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdbRc297S-lOjylVA7W8nmEmjra6mIW-wZKczsmrr8NtQZY9g/formResponse";
+
+      // Submit the form data using fetch
+      fetch(googleFormURL, {
+        method: "POST",
+        body: formData,
+        mode: "no-cors", // This avoids CORS issues
+      })
+        .then(() => {
+          // Show success message and clear fields
+          document.getElementById("successMessage").style.display = "block";
+          form.reset();
+        })
+        .catch((error) => {
+          console.error("Form submission failed", error);
+        });
+    });
+  </script>
+</body>
+</html>
