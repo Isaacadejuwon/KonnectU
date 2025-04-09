@@ -25,12 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('mouseout', () => btn.style.transform = 'scale(1)');
   });
 
-  // Discover Now Button - Scroll to Signup
-  const discoverBtn = document.querySelector('.btn-hero');
-  discoverBtn.addEventListener('click', () => {
-    document.querySelector('.signup').scrollIntoView({ behavior: 'smooth' });
-  });
-
   // Popup Functionality
   const privacyLink = document.getElementById('privacy-link');
   const termsLink = document.getElementById('terms-link');

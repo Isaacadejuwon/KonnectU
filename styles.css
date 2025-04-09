@@ -38,10 +38,8 @@ body {
   box-shadow: 0 0 12px rgba(106, 153, 106, 0.4);
 }
 
-.btn-hero { background: #df8a59; color: #fff; }
 .btn-signup { background: #6a996a; color: #fff; }
 .btn-close { background: #e6c9b8; color: #fff; margin-top: 1rem; }
-.btn-hero:hover { background: #d37948; }
 .btn-signup:hover { background: #5a885a; }
 .btn-close:hover { background: #dfb8a3; }
 
@@ -73,7 +71,7 @@ body {
 }
 
 .logo {
-  height: 350px;
+  height: 150px;
   display: block;
   animation: bounceIn 1s ease-out;
 }
@@ -94,20 +92,17 @@ body {
 .hero {
   background: linear-gradient(180deg, #b3ccb3 0%, #c9d9c9 100%);
   text-align: center;
-  padding: 4rem 0;
+  padding: 2rem 0;
 }
 
-.hero-title {
-  font-size: 3rem;
-  color: #6a996a;
-  font-weight: 800;
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
   animation: slideIn 1s ease-out;
-}
-
-.hero-text {
-  font-size: 1.2rem;
-  max-width: 600px;
-  margin: 1rem auto 2rem;
+  border-radius: 15px; /* Softens the edges */
+  box-shadow: 0 0 20px 10px rgba(179, 204, 179, 0.5); /* Blends edges into background */
 }
 
 /* Features */
@@ -161,7 +156,7 @@ body {
 }
 
 .signup-form {
-  background: rgba(106, 153, 106, 0.2); /* Darker green with transparency */
+  background: rgba(106, 153, 106, 0.2);
   padding: 2rem;
   border-radius: 15px;
   max-width: 500px;
@@ -175,7 +170,7 @@ body {
 
 .signup-form label {
   font-weight: 600;
-  color: #4a784a; /* Even darker green for visibility */
+  color: #4a784a;
   display: block;
   margin-bottom: 0.5rem;
 }
@@ -300,5 +295,5 @@ body {
   .hero-title, .header-title { font-size: 1.8rem; }
   .hero-text, .header-subtitle { font-size: 1rem; }
   .signup-form, .popup-content { padding: 1.5rem; max-width: 90%; }
-  .logo { height: 80px; }
+  .logo { height: 100px; }
 }
