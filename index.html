@@ -3,143 +3,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KonnectU Solutions Limited</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f7f9f9;
-      color: #222;
-    }
-    header, section, footer {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem;
-    }
-    header {
-      background: #fff;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
-    }
-    header img {
-      height: 80px;
-    }
-    h1 {
-      color: #1d8348;
-    }
-    .coming-soon {
-      background: #e8f5e9;
-      padding: 2rem;
-      text-align: center;
-      border-radius: 10px;
-      margin-top: 1rem;
-    }
-    form {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      margin-top: 2rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      background-color: #1d8348;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #777;
-    }
-    .success-message {
-      display: none;
-      color: #1d8348;
-      margin-top: 10px;
-    }
-  </style>
+  <meta name="description" content="KonnectU Solutions Limited connects clients with trusted professionals.">
+  <title>KonnectU Solutions | Connect with Pros</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <img src="images/logo.png" alt="KonnectU Logo">
-    <h1>KonnectU Solutions Limited</h1>
-    <p>Your trusted space to find or offer professional services</p>
+  <header class="header" role="banner">
+    <div class="container">
+      <div class="logo-wrapper">
+        <img src="images/logo.png" alt="KonnectU Solutions Limited Logo" class="logo bounce-in">
+      </div>
+      <h1 class="header-title">KonnectU Solutions</h1>
+      <p class="header-subtitle pulse">Your hub for top-tier services</p>
+    </div>
   </header>
 
-  <section class="coming-soon">
-    <h2>We're Coming Live!</h2>
-    <p>A subsidiary of FixItAll Handyman Multi Services Limited, bringing trusted handyman, artisan, and engineering services to you.</p>
-    <p>Launching soon on Google Play and the App Store.</p>
-  </section>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <h2 id="hero-title" class="hero-title slide-in">Spark Connections</h2>
+        <p class="hero-text">Team up with skilled artisans, professionals, and consultants to make things happen.</p>
+        <button class="btn btn-hero glow" aria-label="Discover KonnectU Services">Discover Now</button>
+      </div>
+    </section>
 
-  <section>
-    <h2>Be Among the First to Join</h2>
-    <form id="registrationForm">
-      <label for="fname">First Name</label>
-      <input type="text" id="fname" name="entry.137930516" required>
+    <section class="features" aria-labelledby="features-title">
+      <h2 id="features-title" class="visually-hidden">Our Offerings</h2>
+      <div class="container feature-grid">
+        <article class="feature-card pop-up">
+          <h3 class="feature-title">Why Us?</h3>
+          <p>Top-notch quality and a platform that connects you to verified pros instantly.</p>
+        </article>
+        <article class="feature-card pop-up">
+          <h3 class="feature-title">How It Works</h3>
+          <ol class="feature-list">
+            <li>Join the community</li>
+            <li>Explore or list services</li>
+            <li>Collaborate and win</li>
+          </ol>
+        </article>
+        <article class="feature-card pop-up">
+          <h3 class="feature-title">Services</h3>
+          <p>From handyman fixes to expert consultancy, we’ve got it all covered.</p>
+        </article>
+      </div>
+    </section>
 
-      <label for="lname">Last Name</label>
-      <input type="text" id="lname" name="entry.365860481" required>
+    <section class="signup" aria-labelledby="signup-title">
+      <div class="container">
+        <h2 id="signup-title" class="signup-title slide-in">Get Started Today!</h2>
+        <form class="signup-form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdbRc297S-lOjylVA7W8nmEmjra6mIW-wZKczsmrr8NtQZY9g/formResponse" method="POST" id="signupForm">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="entry.137930516" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="entry.365860481" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="entry.1596585368" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="entry.1599107456" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" id="location" name="entry.344818518" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="profession">What’s Your Profession?</label>
+            <input type="text" id="profession" name="entry.1088893444" required aria-required="true">
+          </div>
+          <button type="submit" class="btn btn-signup glow">Join Now</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="entry.1596585368" required>
-
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="entry.1599107456" required>
-
-      <label for="location">Location</label>
-      <input type="text" id="location" name="entry.344818518" required>
-
-      <label for="profession">What’s your profession?</label>
-      <input type="text" id="profession" name="entry.1088893444" required>
-
-      <button type="submit">Join Now</button>
-      <p class="success-message" id="successMessage">Thank you for joining! We'll contact you soon.</p>
-    </form>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 KonnectU Solutions Limited — Abuja, Nigeria | +234 803 458 7309</p>
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <p class="footer-text">© 2025 KonnectU Solutions Limited — Abuja, Nigeria | +234 803 458 7309</p>
+      <nav aria-label="Footer navigation">
+        <a href="#" class="footer-link" id="privacy-link">Privacy Policy</a> |
+        <a href="#" class="footer-link" id="terms-link">Terms of Service</a>
+      </nav>
+    </div>
   </footer>
 
-  <script>
-    document.getElementById("registrationForm").addEventListener("submit", function (e) {
-      e.preventDefault(); // Prevent the default form submission
+  <!-- Privacy Policy Popup -->
+  <div class="popup" id="privacy-popup">
+    <div class="popup-content">
+      <h2>Privacy Policy</h2>
+      <p><strong>Effective Date:</strong> April 08, 2025</p>
+      <p>At KonnectU Solutions Limited, we value your privacy. This policy explains how we handle your data on our platform.</p>
+      <h3>1. Information We Collect</h3>
+      <p>We collect what you share (e.g., name, email, phone) via our form, plus usage data (e.g., IP) to improve services.</p>
+      <h3>2. How We Use It</h3>
+      <p>We match you with pros, send updates, and enhance your experience. No selling your data—promise!</p>
+      <h3>3. Protection</h3>
+      <p>Encryption and secure storage keep your info safe, accessible only to our team.</p>
+      <h3>4. Your Rights</h3>
+      <p>Request or delete your data anytime at support@konnectu.com.</p>
+      <h3>5. Contact</h3>
+      <p>Questions? Hit us up at +234 803 458 7309 or support@konnectu.com.</p>
+      <button class="btn btn-close" id="close-privacy">Close</button>
+    </div>
+  </div>
 
-      const form = e.target;
-      const formData = new FormData(form);
+  <!-- Terms of Service Popup -->
+  <div class="popup" id="terms-popup">
+    <div class="popup-content">
+      <h2>Terms of Service</h2>
+      <p><strong>Effective Date:</strong> April 08, 2025</p>
+      <p>Welcome to KonnectU Solutions! These terms govern your use of our connection platform.</p>
+      <h3>1. Acceptance</h3>
+      <p>Using our site means you agree to these rules. Disagree? Please don’t use it.</p>
+      <h3>2. Your Responsibilities</h3>
+      <p>Be honest, respectful, and lawful. No spam or funny business.</p>
+      <h3>3. Our Role</h3>
+      <p>We link you to pros but don’t control their work. Deals are between you and them.</p>
+      <h3>4. Termination</h3>
+      <p>We can pause your account for rule-breaking (e.g., fraud), with notice if possible.</p>
+      <h3>5. Contact</h3>
+      <p>Issues? Call +234 803 458 7309 or email support@konnectu.com.</p>
+      <button class="btn btn-close" id="close-terms">Close</button>
+    </div>
+  </div>
 
-      // Construct the URL to the Google Form
-      const googleFormURL =
-        "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdbRc297S-lOjylVA7W8nmEmjra6mIW-wZKczsmrr8NtQZY9g/formResponse";
-
-      // Submit the form data using fetch
-      fetch(googleFormURL, {
-        method: "POST",
-        body: formData,
-        mode: "no-cors", // This avoids CORS issues
-      })
-        .then(() => {
-          // Show success message and clear fields
-          document.getElementById("successMessage").style.display = "block";
-          form.reset();
-        })
-        .catch((error) => {
-          console.error("Form submission failed", error);
-        });
-    });
-  </script>
+  <script src="scripts.js"></script>
 </body>
 </html>
