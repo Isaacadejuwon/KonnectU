@@ -42,6 +42,15 @@ body {
 .btn-close { background: #e6c9b8; color: #fff; margin-top: 1rem; }
 .btn-signup:hover { background: #5a885a; }
 .btn-close:hover { background: #dfb8a3; }
+.btn-cta { 
+  background: #6a996a; 
+  color: #fff; 
+  text-decoration: none; 
+  display: inline-block; 
+  margin-top: 1rem; 
+  margin-right: 1rem; 
+}
+.btn-cta:hover { background: #5a885a; }
 
 .visually-hidden {
   position: absolute;
@@ -96,7 +105,7 @@ body {
 }
 
 .app-promo {
-  max-width: 400px; /* Reduced from 600px to make the image smaller */
+  max-width: 400px;
   margin: 0 auto;
   position: relative;
   animation: slideIn 1s ease-out;
@@ -104,23 +113,23 @@ body {
 
 .coming-soon {
   position: absolute;
-  top: 5px; /* Adjusted to fit smaller image */
+  top: 5px;
   left: 50%;
   transform: translateX(-50%);
   background: #6a996a;
   color: #fff;
-  padding: 0.4rem 0.8rem; /* Slightly smaller padding */
-  border-radius: 15px; /* Slightly smaller border-radius */
-  font-size: 1rem; /* Reduced font size */
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 1rem;
   font-weight: 600;
 }
 
 .app-promo-img {
   width: 100%;
   height: auto;
-  max-height: 500px; /* Added to constrain the height */
-  border-radius: 20px; /* Slightly smaller border-radius */
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Slightly smaller shadow */
+  max-height: 500px;
+  border-radius: 20px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Features */
@@ -248,6 +257,7 @@ body {
   max-height: 80vh;
   overflow-y: auto;
   position: relative;
+  text-align: center;
 }
 
 .popup-content h2 {
@@ -311,11 +321,11 @@ body {
   .signup-title { font-size: 1.8rem; }
 
   .app-promo {
-    max-width: 300px; /* Smaller max-width for mobile */
+    max-width: 300px;
   }
 
   .coming-soon {
-    font-size: 0.9rem; /* Smaller font size for mobile */
-    padding: 0.3rem 0.6rem; /* Smaller padding for mobile */
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
   }
 }
