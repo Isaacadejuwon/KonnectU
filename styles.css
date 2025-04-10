@@ -95,14 +95,32 @@ body {
   padding: 2rem 0;
 }
 
-.hero-image {
-  max-width: 100%;
-  height: auto;
-  display: block;
+.app-promo {
+  max-width: 400px; /* Reduced from 600px to make the image smaller */
   margin: 0 auto;
+  position: relative;
   animation: slideIn 1s ease-out;
-  border-radius: 15px; /* Softens the edges */
-  box-shadow: 0 0 20px 10px rgba(179, 204, 179, 0.5); /* Blends edges into background */
+}
+
+.coming-soon {
+  position: absolute;
+  top: 5px; /* Adjusted to fit smaller image */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #6a996a;
+  color: #fff;
+  padding: 0.4rem 0.8rem; /* Slightly smaller padding */
+  border-radius: 15px; /* Slightly smaller border-radius */
+  font-size: 1rem; /* Reduced font size */
+  font-weight: 600;
+}
+
+.app-promo-img {
+  width: 100%;
+  height: auto;
+  max-height: 500px; /* Added to constrain the height */
+  border-radius: 20px; /* Slightly smaller border-radius */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Slightly smaller shadow */
 }
 
 /* Features */
@@ -182,41 +200,32 @@ body {
   border-radius: 8px;
   font-size: 1rem;
   background: #fff;
-  color: #333;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.signup-form input:focus {
-  outline: none;
-  box-shadow: 0 0 8px rgba(106, 153, 106, 0.5);
 }
 
 /* Footer */
 .footer {
-  background: linear-gradient(180deg, #e6c9b8 0%, #6a996a 100%);
-  color: #fff;
-  padding: 2rem 0;
+  background: linear-gradient(180deg, #e6c9b8 0%, #b3ccb3 100%);
+  color: #333;
   text-align: center;
-  font-size: 1rem;
+  padding: 1.5rem 0;
 }
 
 .footer-text {
-  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
 }
 
 .footer-link {
-  color: #fff;
+  color: #6a996a;
   text-decoration: none;
-  margin: 0 0.5rem;
-  cursor: pointer;
-  transition: opacity 0.3s;
+  font-weight: 600;
 }
 
 .footer-link:hover {
-  opacity: 0.8;
+  color: #5a885a;
 }
 
-/* Popup Styles */
+/* Popups */
 .popup {
   display: none;
   position: fixed;
@@ -224,76 +233,89 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+  background: rgba(0, 0, 0, 0.7);
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
 .popup-content {
-  background: linear-gradient(135deg, #d9e6d9 0%, #c9d9c9 100%);
+  background: #fff;
   padding: 2rem;
-  border-radius: 20px;
-  width: 100%;
-  max-width: 500px;
+  border-radius: 15px;
+  max-width: 600px;
+  width: 90%;
   max-height: 80vh;
   overflow-y: auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  animation: slideIn 0.3s ease-out;
+  position: relative;
 }
 
 .popup-content h2 {
   font-size: 1.8rem;
-  color: #6a996a;
-  font-weight: 800;
   margin-bottom: 1rem;
-  text-align: center;
+  color: #333;
 }
 
 .popup-content h3 {
-  font-size: 1.3rem;
-  color: #333;
-  margin: 1rem 0 0.5rem;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: #6a996a;
 }
 
 .popup-content p {
-  font-size: 0.95rem;
-  color: #555;
   margin-bottom: 1rem;
+  color: #555;
 }
 
 /* Animations */
 @keyframes bounceIn {
-  0% { transform: scale(0); opacity: 0; }
-  60% { transform: scale(1.1); opacity: 1; }
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
   100% { transform: scale(1); }
-}
-
-@keyframes slideIn {
-  0% { transform: translateY(40px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
 }
 
 @keyframes pulse {
   0% { transform: scale(1); }
-  50% { transform: scale(1.03); }
+  50% { transform: scale(1.05); }
   100% { transform: scale(1); }
 }
 
-.pop-up {
-  animation: slideIn 0.5s ease-out;
+@keyframes slideIn {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
-/* Responsive */
+.bounce-in { animation: bounceIn 1s ease-out; }
+.pulse { animation: pulse 2s infinite; }
+.slide-in { animation: slideIn 1s ease-out; }
+
+/* Media Queries */
 @media (min-width: 768px) {
   .feature-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .header-title { font-size: 3.5rem; }
+  .header-subtitle { font-size: 1.5rem; }
+  .signup-title { font-size: 2.5rem; }
 }
 
 @media (max-width: 767px) {
-  .hero-title, .header-title { font-size: 1.8rem; }
-  .hero-text, .header-subtitle { font-size: 1rem; }
-  .signup-form, .popup-content { padding: 1.5rem; max-width: 90%; }
-  .logo { height: 100px; }
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header-title { font-size: 2rem; }
+  .header-subtitle { font-size: 1rem; }
+  .signup-title { font-size: 1.8rem; }
+
+  .app-promo {
+    max-width: 300px; /* Smaller max-width for mobile */
+  }
+
+  .coming-soon {
+    font-size: 0.9rem; /* Smaller font size for mobile */
+    padding: 0.3rem 0.6rem; /* Smaller padding for mobile */
+  }
 }
