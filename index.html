@@ -5,10 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="KonnectU Solutions Limited connects clients with trusted professionals.">
   <title>KonnectU Solutions | Connect with Pros</title>
-  <link rel="icon" type="image/x-icon" href="images/favicon-32x32.png"> <!-- Added favicon -->
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap">
   <link rel="stylesheet" href="styles.css">
+  <!-- Add EmailJS Script -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    // Initialize EmailJS with your User ID
+    (function(){
+      emailjs.init("NTrSIfvROZLj_p_Hy"); // Replace with your EmailJS User ID (e.g., user_123456)
+    })();
+  </script>
 </head>
 <body>
   <header class="header" role="banner">
@@ -25,7 +33,23 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="container">
         <h2 id="hero-title" class="visually-hidden">App Launch Announcement</h2>
-        <img src="images/app-promo.png" alt="KonnectU App Coming Soon on Google Play and App Store" class="hero-image slide-in">
+        <div class="app-mockup slide-in">
+          <div class="app-screen">
+            <span class="coming-soon">COMING SOON</span>
+            <img src="images/logo.png" alt="KonnectU Solutions Limited Logo" class="app-logo">
+            <h3 class="app-title">Welcome to KonnectU</h3>
+            <p class="app-text">Your trusted space to find or offer professional services – from handymen to professionals.</p>
+            <p class="app-text">Post a task or browse opportunities. Let’s get it done, together.</p>
+            <div class="app-buttons">
+              <button class="btn app-btn app-btn-login" disabled>Login</button>
+              <button class="btn app-btn app-btn-create">Create Account</button>
+            </div>
+          </div>
+          <div class="app-stores">
+            <img src="images/google-play-badge.png" alt="Get it on Google Play" class="store-badge">
+            <img src="images/app-store-badge.png" alt="Download on the App Store" class="store-badge">
+          </div>
+        </div>
       </div>
     </section>
 
