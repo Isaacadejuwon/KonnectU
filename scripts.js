@@ -1,16 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Form Submission
   const form = document.getElementById('signupForm');
-  if (!form) {
-    console.error('Form element with ID "signupForm" not found');
+  const submitButton = document.getElementById('submitButton');
+  const loadingMessage = document.getElementById('loadingMessage');
+
+  if (!form || !submitButton) {
+    console.error('Form or submit button not found');
     return;
   }
 
   console.log('Form element found:', form);
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    console.log('Submit button clicked');
+  // Flag to prevent multiple submissions
+  let isSubmitting = false;
+
+  // Counter to track click events
+  let clickCount = 0;
+
+  const handleClick = async () => {
+    clickCount++;
+    console.log(`Submit button clicked ${clickCount} time(s)`);
+
+    if (isSubmitting) {
+      console.log('Submission already in progress, ignoring additional click');
+      return;
+    }
+
+    isSubmitting = true;
+
+    submitButton.disabled = true;
+    submitButton.style.cursor = 'not-allowed';
+    loadingMessage.style.display = 'block';
 
     // Collect form data
     const formData = new FormData(form);
@@ -21,37 +41,48 @@ document.addEventListener('DOMContentLoaded', () => {
       phone: formData.get('entry.1599107456') || '',
       location: formData.get('entry.344818518') || '',
       profession: formData.get('entry.1088893444') || '',
-      to_email: formData.get('entry.1596585368') || ''
+      to_email: formData.get('entry.1596585368') || '' // User’s email for confirmation email
+    };
+
+    // Create a separate object for the forwarded email
+    const forwardFormValues = {
+      ...formValues, // Copy all fields from formValues
+      to_email: 'support@konnectusolutions.com' // Override to_email with your team's email
     };
 
     // Validate form data
     if (!formValues.email || !formValues.to_email) {
       console.error('Form Validation Error: Email field is missing or empty');
       alert('Please provide a valid email address.');
+
+      isSubmitting = false;
+      submitButton.disabled = false;
+      submitButton.style.cursor = 'pointer';
+      loadingMessage.style.display = 'none';
       return;
     }
 
     try {
-      console.log('Form Values:', formValues);
+      console.log('Form Values (User Confirmation):', formValues);
+      console.log('Form Values (Forwarded):', forwardFormValues);
       console.log('Sending confirmation email to:', formValues.to_email);
+      console.log('Sending forwarded email to:', forwardFormValues.to_email);
 
-      // Send confirmation email to the user
-      const userEmailResponse = await emailjs.send(
-        'service_zhya6yp',
-        'template_jurukgu',
-        formValues
-      );
+      const [userEmailResponse, forwardEmailResponse] = await Promise.all([
+        emailjs.send(
+          'service_zhya6yp',
+          'template_jurukgu',
+          formValues
+        ),
+        emailjs.send(
+          'service_zhya6yp',
+          'template_z7s4w4m',
+          forwardFormValues // Use the updated formValues for the forwarded email
+        )
+      ]);
       console.log('User Confirmation Email Response:', userEmailResponse);
-
-      // Send forwarding email
-      const forwardEmailResponse = await emailjs.send(
-        'service_zhya6yp',
-        'template_jurukgu',
-        formValues
-      );
       console.log('Forward Email Response:', forwardEmailResponse);
 
-      // Submit to Google Form
       const googleFormResponse = await fetch(form.action, {
         method: 'POST',
         body: formData,
@@ -59,22 +90,31 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       console.log('Google Form Submission Response:', googleFormResponse);
 
-      // Show the thank-you popup
       const thankYouPopup = document.getElementById('thank-you-popup');
       thankYouPopup.style.display = 'flex';
 
-      // Reset the form
       form.reset();
     } catch (error) {
       console.error('Form Submission Error:', error);
       alert('Oops! Something went wrong—try again. Check the console for details.');
+    } finally {
+      isSubmitting = false;
+      submitButton.disabled = false;
+      submitButton.style.cursor = 'pointer';
+      loadingMessage.style.display = 'none';
     }
-  });
+  };
+
+  // Remove any existing event listeners
+  submitButton.removeEventListener('click', handleClick);
+  submitButton.addEventListener('click', handleClick);
 
   // Button Hover Effect
   document.querySelectorAll('.btn').forEach(btn => {
     btn.addEventListener('mouseover', () => {
-      btn.style.transform = 'scale(1.1)';
+      if (!btn.disabled) {
+        btn.style.transform = 'scale(1.1)';
+      }
     });
     btn.addEventListener('mouseout', () => {
       btn.style.transform = 'scale(1)';

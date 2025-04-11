@@ -39,8 +39,13 @@ body {
 }
 
 .btn-signup { background: #6a996a; color: #fff; }
+.btn-signup:disabled { 
+  background: #a3c3a3; 
+  cursor: not-allowed; 
+  transform: none; 
+}
 .btn-close { background: #e6c9b8; color: #fff; margin-top: 1rem; }
-.btn-signup:hover { background: #5a885a; }
+.btn-signup:hover:not(:disabled) { background: #5a885a; }
 .btn-close:hover { background: #dfb8a3; }
 .btn-cta { 
   background: #6a996a; 
@@ -51,6 +56,14 @@ body {
   margin-right: 1rem; 
 }
 .btn-cta:hover { background: #5a885a; }
+
+.loading-message {
+  display: block;
+  margin-top: 0.5rem;
+  color: #4a784a;
+  font-weight: 600;
+  font-size: 1rem;
+}
 
 .visually-hidden {
   position: absolute;
