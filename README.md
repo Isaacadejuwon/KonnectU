@@ -8,14 +8,7 @@ Welcome to the official repository for the KonnectU Solutions website! This proj
 - [Overview](#overview)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
-- [Setup Instructions](#setup-instructions)
-- [File Structure](#file-structure)
-- [Usage](#usage)
-- [Deployment](#deployment)
-- [Testing](#testing)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+
 
 ## Overview
 KonnectU Solutions Limited is a platform designed to bridge the gap between clients and top-tier professionals. This website serves as a pre-launch landing page where users can join the early adopter community. Upon form submission, users receive a confirmation email, and their data is stored in a Google Form for future follow-up.
