@@ -4,8 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="KonnectU Solutions Limited connects clients with trusted professionals.">
+  <meta property="og:title" content="KonnectU Solutions | Connect with Pros">
+  <meta property="og:description" content="KonnectU Solutions Limited connects clients with trusted professionals.">
+  <meta property="og:image" content="images/og-image.jpg">
+  <meta name="twitter:title" content="KonnectU Solutions | Connect with Pros">
+  <meta name="twitter:description" content="KonnectU Solutions Limited connects clients with trusted professionals.">
+  <meta name="twitter:image" content="images/og-image.jpg">
   <title>KonnectU Solutions | Connect with Pros</title>
-  <link rel="icon" type="image/x-icon" href="images/favicon.png">
+
+  <!-- Favicon links -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap">
   <link rel="stylesheet" href="styles.css">
@@ -15,6 +26,14 @@
     (function(){
       emailjs.init("NTrSIfvROZLj_p_Hy"); // Replace with your actual EmailJS User ID
     })();
+    // Ensure the document title and header title are not overridden dynamically
+    document.title = "KonnectU Solutions | Connect with Pros";
+    window.addEventListener("DOMContentLoaded", () => {
+      const headerTitle = document.querySelector(".header-title");
+      if (headerTitle) {
+        headerTitle.textContent = "KonnectU Solutions";
+      }
+    });
   </script>
 </head>
 <body>
