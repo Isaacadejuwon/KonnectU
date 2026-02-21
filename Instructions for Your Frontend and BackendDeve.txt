@@ -1,0 +1,53 @@
+Instructions for Your Frontend Developer
+
+1. API URL: This is the single, public base URL for all API calls: https://dev.api.konnectusolutions.com
+
+2. Local Setup: In your frontend project's .env.local (or equivalent) file, set your API base URL to this public address:
+
+
+# Example for a React app
+REACT_APP_API_BASE_URL=https://dev.api.konnectusolutions.com
+When you run your local frontend (npm run start), it will make its API calls directly to the live, deployed backend.
+
+3. API Documentation (Swagger UI): The interactive API documentation is now live. You can access it in your browser at: https://dev.api.konnectusolutions.com/api
+
+4. Authentication Flow (Important): You will be able to see the Swagger UI, but to use the "Try it out" buttons, you must get an application token.
+
+Use an API client (like Postman) to call the login endpoint: POST https://dev.api.konnectusolutions.com/auth/login (Include a test user's email/password in the body).
+
+The API will respond with an access_token (a JWT).
+
+Copy this token.
+
+In the Swagger UI, click the "Authorize" button, paste the token into the Bearer field, and save.
+
+You can now use all the "Try it out" buttons.
+
+Instructions for Your Backend Developer
+Your workflow is split into building new features (local) and testing the deployed service (live).
+
+1. Building New Features (Local Dev) This workflow does not change.
+
+Run the app locally: npm run start:dev
+
+This uses your local .env file and your local/dev database.
+
+Test your new code by visiting your local Swagger UI: http://localhost:4000/api
+
+2. Testing the Deployed Service (Live) This is now much easier. You do not need the gcloud proxy.
+
+API URL: https://dev.api.konnectusolutions.com
+
+Live Docs: Just open https://dev.api.konnectusolutions.com/api in your browser.
+
+Postman: Use the public URL directly.
+
+Call POST /auth/login to get an application JWT.
+
+Use that JWT as a Bearer Token for all other locked endpoints.
+
+3. Viewing Live Logs (Your Only GCP Task) This is the only task that still requires Google Cloud access.
+
+Log in: Make sure you have run gcloud auth login (if you haven't already).
+
+View Logs: You have been given Logs Viewer permission. You can view all backend logs at this URL: https://console.cloud.google.com/logs/viewer?project=konnectu-app&resource=cloud_run_revision
